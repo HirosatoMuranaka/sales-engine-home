@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sales Engine</title>
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-title" content="Sales Engine">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script>
+/* ホーム画面のアイコンから開いたとき（?go=1 か standalone）は、すぐ本番の Sales Engine へ */
+var APP='https://script.google.com/macros/s/AKfycbwJJ5UFXrE5y_P9lmzv5UBc463ciwsIQVaoZ5aNmwcP2yBhKtZ22oli2azzEfuhJTAdXw/exec';
+var GO=/(^|[?&])go=1(&|$)/.test(location.search)||window.navigator.standalone===true;
+if(GO){location.replace(APP+'?h=1');}
+else{try{history.replaceState(null,'',location.pathname+'?go=1');}catch(e){}} /* 追加されるURLを「開いたらすぐアプリへ」の形にしておく */
+</script>
+<style>
+:root{--bg:#F3F5F8;--card:#fff;--ink:#181818;--sub:#555;--mut:#8a8a8a;--rule:#E3E7ED;--brand:#0176D3;--soft:#EDF4FF}
+@media (prefers-color-scheme:dark){:root{--bg:#0F0F0F;--card:#1a1a1a;--ink:#EAEAEA;--sub:#bdbdbd;--mut:#8f8f8f;--rule:#2c2c2c;--brand:#4AA3F0;--soft:#0B2A52;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:440px;margin:0 auto;padding:calc(36px + env(safe-area-inset-top,0px)) 20px calc(40px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:22px}
+.icon{width:96px;height:96px;border-radius:22px;box-shadow:0 6px 20px rgba(1,68,134,.18)}
+h1{font-size:22px;line-height:1.35;margin:0;text-align:center}
+.lead{margin:6px 0 0;text-align:center;color:var(--sub);font-size:14px}
+.nb{display:inline-block}
+ol{list-style:none;margin:0;padding:0;width:100%;display:flex;flex-direction:column;gap:10px}
+li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:14px}
+.n{width:32px;height:32px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;display:grid;place-items:center}
+li b{display:block;font-size:16px;line-height:1.4}
+li span{display:block;font-size:13px;color:var(--sub);margin-top:2px}
+.share{display:inline-grid;place-items:center;width:22px;height:22px;vertical-align:-5px;margin:0 2px;color:var(--brand)}
+.alt{font-size:13px;color:var(--mut);text-align:center;margin:0}
+.alt a{color:var(--brand);font-weight:600;text-decoration:none}
+.arrow{position:fixed;left:50%;bottom:calc(8px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);color:var(--brand);animation:b 1.2s ease-in-out infinite}
+@keyframes b{50%{transform:translate(-50%,6px)}}
+.test{font-size:11px;color:#b45309;background:#FEF3C7;border-radius:999px;padding:2px 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="icon" src="apple-touch-icon.png" alt="">
+  <div><h1><span class="nb">Sales Engine を</span><span class="nb">ホーム画面に追加</span></h1>
+  <p class="lead"><span class="nb">追加すると、アイコンから</span><span class="nb">すぐ開けるようになります。</span></p></div>
+  <ol>
+    <li><span class="n">1</span><div><b>共有ボタン<span class="share"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg></span>を押す</b><span>画面の下にあります。見当たらないときは右下の「…」→「共有」。</span></div></li>
+    <li><span class="n">2</span><div><b>「ホーム画面に追加」を押す</b><span>出てこないときは、メニューを下へスクロールします。</span></div></li>
+    <li><span class="n">3</span><div><b>右上の「追加」を押す</b><span>このアイコンがホーム画面に出れば完了です。</span></div></li>
+  </ol>
+  <p class="alt"><a href="#" id="open">追加せずに Sales Engine を開く</a></p>
+</div>
+<svg class="arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg>
+<script>document.getElementById('open').addEventListener('click',function(e){e.preventDefault();location.href=APP;});</script>
+</body>
+</html>
