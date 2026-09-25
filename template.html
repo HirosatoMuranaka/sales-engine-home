@@ -6,8 +6,8 @@
 <title>Sales Engine</title>
 <meta name="robots" content="noindex">
 <meta name="apple-mobile-web-app-title" content="Sales Engine">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="__ASSET__apple-touch-icon.png">
+<link rel="icon" type="image/png" href="__ASSET__apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <script>
 /* Sales Engine をホーム画面に新しいアイコンで置くための案内ページ。
@@ -15,7 +15,7 @@
    ・初めて開いた：案内を見せ、アドレスを ?go=1 にしておく（ホーム画面に追加されるのはこの形）
    ・ホーム画面のアイコンから開いた（?go=1 で、このタブで案内を見ていない／standalone）：すぐ本番へ（?h=1＝アプリ側はすすめない）
    ・案内を見ている途中の読み直し：同じタブの印（sessionStorage）があるので飛ばない */
-var APP='https://script.google.com/macros/s/AKfycbwJJ5UFXrE5y_P9lmzv5UBc463ciwsIQVaoZ5aNmwcP2yBhKtZ22oli2azzEfuhJTAdXw/exec';
+var APP='__APP__';
 var seen=false;try{seen=sessionStorage.getItem('se_guide')==='1';}catch(e){}
 var GO=window.navigator.standalone===true||(/(^|[?&])go=1(&|$)/.test(location.search)&&!seen);
 if(GO){location.replace(APP+'?h=1');}
@@ -45,13 +45,13 @@ li span.d{display:block;font-size:13px;color:var(--sub);margin-top:2px}
 @keyframes b{50%{transform:translate(-50%,6px)}}
 @media (max-height:700px){.arrow{display:none}}
 [hidden]{display:none!important}
-
+__BADGE_CSS__
 </style>
 </head>
 <body>
 <div class="wrap">
-  
-  <img class="icon" src="apple-touch-icon.png" alt="Sales Engine のアイコン">
+  __BADGE__
+  <img class="icon" src="__ASSET__apple-touch-icon.png" alt="Sales Engine のアイコン">
   <div><h1><span class="nw">Sales Engine を</span><span class="nw">ホーム画面に追加</span></h1>
   <p class="lead"><span class="nw">追加すると、アイコンから</span><span class="nw">すぐ開けるようになります。</span></p></div>
   <div class="note" id="inapp" hidden><b>この画面からは追加できません</b><span class="nw">右上（または右下）のメニューから</span><span class="nw">「Safariで開く」を選んでください。</span></div>
@@ -60,7 +60,7 @@ li span.d{display:block;font-size:13px;color:var(--sub);margin-top:2px}
     <li><span class="n">2</span><div><b><span class="nw">「ホーム画面に追加」を</span><span class="nw">押す</span></b><span class="d">出てこないときは、メニューを下へスクロールします。</span></div></li>
     <li><span class="n">3</span><div><b><span class="nw">右上の「追加」を</span><span class="nw">押す</span></b><span class="d">このアイコンがホーム画面に出れば完了です。</span></div></li>
   </ol>
-  <a class="open" href="https://script.google.com/macros/s/AKfycbwJJ5UFXrE5y_P9lmzv5UBc463ciwsIQVaoZ5aNmwcP2yBhKtZ22oli2azzEfuhJTAdXw/exec?h=0">追加せずに Sales Engine を開く</a>
+  <a class="open" href="__APP__?h=0">追加せずに Sales Engine を開く</a>
 </div>
 <svg class="arrow" id="arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg>
 <script>
